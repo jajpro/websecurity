@@ -8,8 +8,16 @@
         <p>
             <a href="/members/new">회원 가입</a>
             <a href="/members/signIn">로그인</a>
+
+            <!-- spring security 기본 설정 -->
+            <a href="/logout">로그아웃</a>
+
             <a href="/members">회원 목록</a>
         </p>
+        <P>
+        <!-- 로그인 성공. Role 출력 -->
+        <p th:text="${info}"></p>
+        </P>
     </div>
 </div> <!-- /container -->
 </body>

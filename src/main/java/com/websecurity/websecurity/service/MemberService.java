@@ -1,5 +1,6 @@
 package com.websecurity.websecurity.service;
 
+import com.websecurity.websecurity.auth.MyUserDetail;
 import com.websecurity.websecurity.domain.Member;
 import com.websecurity.websecurity.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -56,6 +57,12 @@ public class MemberService implements UserDetailsService {
         Optional<Member> byUserName = memberRepository.findByName(name);
         Member member = byUserName.orElseThrow(() -> new UsernameNotFoundException(name));
         return new User(member.getName(), member.getPassword(), authorities());
+
+        /*
+        Member member = memberRepository.findByName(name);
+        return new MyUserDetail(member);
+        */
+
     }
 
     private Collection<? extends GrantedAuthority> authorities() {
